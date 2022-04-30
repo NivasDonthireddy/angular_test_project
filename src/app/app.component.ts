@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { User } from './auth-form/auth-form.interface';
 import { Post } from './Post';
 @Component({
     selector: 'app-root',
@@ -7,23 +8,24 @@ import { Post } from './Post';
     styleUrls: ['./app.component.css'],
     
 })
-export class AppComponent {
-    data: Post[] = [];
-    loading: boolean;
-    constructor(private http: HttpClient){}
-    
-    makeRequest(): void {
-        this.loading = true;
-        this.http
-        .get<Post[]>('https://jsonplaceholder.typicode.com/posts')
-        .subscribe(data => {
-        this.data = data;
-        this.loading = false;
-        });
+export class AppComponent implements OnInit{
+    constructor(){}
+
+    ngOnInit(): void {
+
     }
 
-    onChange(event: any){
-        console.log(event.target.files);
+    rememberMe: boolean = false;
+
+    rememberUser(remember: boolean) {
+      this.rememberMe = remember;
     }
-        
+  
+    createUser(user : any) {
+      console.log('Create account', user);
+    }
+  
+    loginUser(user: any) {
+      console.log('Login', user, this.rememberMe);
+    }
 }

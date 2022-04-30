@@ -1,4 +1,24 @@
-<h2>Basic Request</h2>
-<button type="button" (click)="makeRequest()">Make Request</button>
-<div *ngIf="loading">loading...</div>
-<p *ngFor="let post of data">{{post.title}}</p>
+<div>
+    <auth-form 
+      (submitted)="createUser($event)">
+      <h3>Create account</h3>
+      <button type="submit">
+        Join us
+      </button>
+    </auth-form>
+    <auth-form  (submitted)="loginUser($event)">
+      <h3>Login</h3>
+      <auth-remember
+        (checked)="rememberUser($event)">
+      </auth-remember>
+      <auth-remember
+        (checked)="rememberUser($event)">
+      </auth-remember>
+      <auth-remember
+        (checked)="rememberUser($event)">
+      </auth-remember>
+      <button type="submit">
+        Login
+      </button>
+    </auth-form>
+  </div>
