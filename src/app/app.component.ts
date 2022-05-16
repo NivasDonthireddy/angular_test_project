@@ -1,31 +1,27 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { User } from './auth-form/auth-form.interface';
-import { Post } from './Post';
+import { AfterContentInit, Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { AuthFormComponent } from './auth-form/auth-form.component';
+import { AuthMessageComponent } from './auth-message/auth-message.component';
+import { AdDirective } from './ad.directive';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
     
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit,AfterContentInit{
+
     constructor(){}
+    @ViewChild(AdDirective, {static: true}) adHost!: AdDirective;
 
     ngOnInit(): void {
-
+      let component = this.adHost.viewContainerRef.createComponent(AuthMessageComponent);
+      component.instance.days = 20;
     }
 
-    rememberMe: boolean = false;
+    ngAfterContentInit(): void {
+      
+    }
 
-    rememberUser(remember: boolean) {
-      this.rememberMe = remember;
-    }
-  
-    createUser(user : any) {
-      console.log('Create account', user);
-    }
-  
     loginUser(user: any) {
-      console.log('Login', user, this.rememberMe);
     }
 }

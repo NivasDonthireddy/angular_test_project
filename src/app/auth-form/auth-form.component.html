@@ -1,6 +1,6 @@
 <div>
     <form (ngSubmit)="onSubmit(form.value)" #form="ngForm">
-      <ng-content select="h3"></ng-content>
+      <h3>{{title}}</h3>
       <label>
         Email address
         <input type="email" name="email" ngModel #email>
@@ -9,9 +9,5 @@
         Password
         <input type="password" name="password" ngModel>
       </label>
-      <ng-content select="auth-remember"></ng-content>
-      <app-auth-message [style.display]="(showMessage?'inline':'none')"></app-auth-message>
-      <app-auth-message [style.display]="(showMessage?'inline':'none')"></app-auth-message>
-      <ng-content select="button"></ng-content>
     </form>
   </div>

@@ -8,6 +8,7 @@ import { AuthFormComponent } from './auth-form/auth-form.component';
 import { AuthRememberComponent } from './auth-form/auth-remember.component';
 import { AuthTestComponent } from './auth-test/auth-test.component';
 import { AuthMessageComponent } from './auth-message/auth-message.component';
+import { AdDirective } from './ad.directive';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { AuthMessageComponent } from './auth-message/auth-message.component';
     AuthFormComponent,
     AuthRememberComponent,
     AuthTestComponent,
-    AuthMessageComponent
+    AuthMessageComponent,
+    AdDirective
   ],
   imports: [
     BrowserModule,
